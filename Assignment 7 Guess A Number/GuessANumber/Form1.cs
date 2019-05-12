@@ -16,6 +16,7 @@ namespace GuessANumber
         {
             randomNumber = ranNumberGenerator.Next(1, 5);
             radioButton6.Checked = true;
+            label1.Text = "Pick a number. \nSee if you can win!"; //Bug fix new line \n oes not work in design mode.
             emptyLabel2.Text = "";
         }
 
