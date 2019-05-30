@@ -89,7 +89,9 @@ namespace GuessingGame
             {
                 if (prevHigh < correct)
                 {
-                    outFile = writer.WriteLine(correct); //Writing to file???
+                    writer.WriteLine("" + correct); //Writing to file???
+                    writer.Close();
+                    outFile.Close();
                 }
                 button1.Enabled = false;
             }
