@@ -19,7 +19,7 @@ namespace GuessingGame
         int correct = 0;
         char myChoice;
         char randomChoice;
-        const string FILENAME = @"HighScore.txt";
+        const string FILENAME = @"HighScore.txt"; //You may need to create a HighScore.txt file in the Debug folder first before running.
         static FileStream inFile = new FileStream(FILENAME, FileMode.Open, FileAccess.Read);
         StreamReader reader = new StreamReader(inFile);
         
