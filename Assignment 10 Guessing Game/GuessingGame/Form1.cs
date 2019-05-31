@@ -22,8 +22,7 @@ namespace GuessingGame
         const string FILENAME = @"HighScore.txt";
         static FileStream inFile = new FileStream(FILENAME, FileMode.Open, FileAccess.Read);
         StreamReader reader = new StreamReader(inFile);
-        static FileStream outFile = new FileStream(FILENAME, FileMode.Open, FileAccess.Write);
-        StreamWriter writer = new StreamWriter(outFile);
+        
         string recordIn;
         int prevHigh;
 
@@ -89,9 +88,14 @@ namespace GuessingGame
             {
                 if (prevHigh < correct)
                 {
-                    outFile = writer.WriteLine(correct); //Writing to file???
+                    FileStream outFile = new FileStream(FILENAME, FileMode.Open, FileAccess.Write);
+                    StreamWriter writer = new StreamWriter(outFile);
+                    writer.WriteLine("" + correct); //Writing to file???
+                    writer.Close();
+                    outFile.Close();
                 }
                 button1.Enabled = false;
+                prevHighScore.Text = "Congrats you beat the high score of " + prevHigh + " with a score of " + correct + "!";
             }
         }
     }
